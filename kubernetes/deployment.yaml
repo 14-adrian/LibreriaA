@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: django-deployment
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: libreriaaprendamos
+  template:
+    metadata:
+      labels:
+        app: libreriaaprendamos
+    spec:
+      containers:
+      - name: django
+        image: gcr.io/$PROJECT_ID/libreriaaprendamos
+        ports:
+        - containerPort: 8000
+        env:
+        - name: DJANGO_SETTINGS_MODULE
+          value: "LibreriaAprendamos.settings"

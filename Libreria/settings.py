@@ -84,7 +84,7 @@ DATABASES = {
         'NAME': 'libreria',
         'USER': 'django',
         'PASSWORD': 'pass123@',
-        'HOST': '34.206.72.5',  # o la dirección de tu servidor MySQL
+        'HOST': '34.51.14.6',  # o la dirección de tu servidor MySQL
         'PORT': '3306',  # El puerto por defecto de MySQL
     }
 }
