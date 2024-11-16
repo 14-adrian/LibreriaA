@@ -74,6 +74,8 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'Libreria.wsgi.application'
 
+#rename
+
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
