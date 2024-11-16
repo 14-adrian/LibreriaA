@@ -1,5 +1,5 @@
 # Imagen base
-FROM python:3.10.4-slim
+FROM python:3.10-slim
 
 # Variables de entorno
 ENV PYTHONDONTWRITEBYTECODE=1
@@ -7,8 +7,11 @@ ENV PYTHONUNBUFFERED=1
 
 # Instalar dependencias del sistema
 RUN apt-get update && apt-get install -y \
-    libpq-dev gcc && \
-    apt-get clean
+    build-essential \
+    libmysqlclient-dev \
+    default-libmysqlclient-dev \
+    pkg-config \
+    && rm -rf /var/lib/apt/lists/*
 
 # Crear directorio de trabajo
 WORKDIR /app
