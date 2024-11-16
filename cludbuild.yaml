@@ -25,4 +25,4 @@ steps:
     - 'django=gcr.io/$PROJECT_ID/actividadintegradora'
 
 options:
-  logging: NONE  # Desactiva los logs
+  logging: CLOUD_LOGGING_ONLY
