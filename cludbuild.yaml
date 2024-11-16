@@ -16,7 +16,7 @@ steps:
     - '-f'
     - 'kubernetes/service.yaml'
 
-# Configurar la imagen actualizada en el clúster
+# 4. Configurar la imagen actualizada en el clúster
 - name: 'gcr.io/cloud-builders/kubectl'
   args:
     - 'set'
@@ -24,11 +24,5 @@ steps:
     - 'deployment/actividad-deployment'
     - 'django=gcr.io/$PROJECT_ID/actividadintegradora'
 
-images:
-- 'gcr.io/$PROJECT_ID/actividadintegradora'
-
 options:
-  logging: CLOUD_LOGGING_ONLY
-  build:
-    service_account: projects/actividadintegradora-441600/serviceAccounts/722172802789-compute@developer.gserviceaccount.com
-    logs_bucket: gs://<aprendamos>
+  logging: NONE  # Desactiva los logs
