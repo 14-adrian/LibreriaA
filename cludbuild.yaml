@@ -26,3 +26,9 @@ steps:
 
 images:
 - 'gcr.io/$PROJECT_ID/actividadintegradora'
+
+options:
+  logging: CLOUD_LOGGING_ONLY
+  build:
+    service_account: projects/<project-id>/serviceAccounts/<service-account-name>
+    logs_bucket: gs://<aprendamos>
