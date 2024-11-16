@@ -1,11 +1,11 @@
 steps:
 # 1. Construir la imagen Docker
 - name: 'gcr.io/cloud-builders/docker'
-  args: ['build', '-t', 'gcr.io/$PROJECT_ID/libreriaaprendamos', '.']
+  args: ['build', '-t', 'gcr.io/$PROJECT_ID/actividadintegradora', '.']
 
 # 2. Subir la imagen a Container Registry
 - name: 'gcr.io/cloud-builders/docker'
-  args: ['push', 'gcr.io/$PROJECT_ID/libreriaaprendamos']
+  args: ['push', 'gcr.io/$PROJECT_ID/actividadintegradora']
 
 # 3. Desplegar en GKE
 - name: 'gcr.io/cloud-builders/kubectl'
@@ -16,13 +16,13 @@ steps:
     - '-f'
     - 'kubernetes/service.yaml'
 
-# Configurar imagen actualizada en GKE
+# Configurar la imagen actualizada en el clúster
 - name: 'gcr.io/cloud-builders/kubectl'
   args:
     - 'set'
     - 'image'
-    - 'deployment/django-deployment'
-    - 'django=gcr.io/$PROJECT_ID/libreriaaprendamos'
+    - 'deployment/actividad-deployment'
+    - 'django=gcr.io/$PROJECT_ID/actividadintegradora'
 
 images:
-- 'gcr.io/$PROJECT_ID/libreriaaprendamos'
+- 'gcr.io/$PROJECT_ID/actividadintegradora'

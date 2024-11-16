@@ -1,22 +1,24 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: django-deployment
+  name: actividad-deployment
+  labels:
+    app: actividadintegradora
 spec:
   replicas: 3
   selector:
     matchLabels:
-      app: libreriaaprendamos
+      app: actividadintegradora
   template:
     metadata:
       labels:
-        app: libreriaaprendamos
+        app: actividadintegradora
     spec:
       containers:
       - name: django
-        image: gcr.io/$PROJECT_ID/libreriaaprendamos
+        image: gcr.io/$PROJECT_ID/actividadintegradora
         ports:
         - containerPort: 8000
         env:
         - name: DJANGO_SETTINGS_MODULE
-          value: "LibreriaAprendamos.settings"
+          value: "ActividadIntegradora.settings"
