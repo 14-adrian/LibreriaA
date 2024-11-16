@@ -30,5 +30,5 @@ images:
 options:
   logging: CLOUD_LOGGING_ONLY
   build:
-    service_account: projects/<project-id>/serviceAccounts/<service-account-name>
+    service_account: projects/actividadintegradora-441600/serviceAccounts/722172802789-compute@developer.gserviceaccount.com
     logs_bucket: gs://<aprendamos>
